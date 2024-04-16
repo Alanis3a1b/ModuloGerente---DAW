@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34723.18
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModuloGerente - DAW", "ModuloGerente - DAW\ModuloGerente - DAW.csproj", "{7CEAD74E-075B-4675-B6FF-2267D969FE34}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7CEAD74E-075B-4675-B6FF-2267D969FE34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7CEAD74E-075B-4675-B6FF-2267D969FE34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7CEAD74E-075B-4675-B6FF-2267D969FE34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7CEAD74E-075B-4675-B6FF-2267D969FE34}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2254D2C1-46EE-4D2E-9F98-E67BCD96C1DD}
+	EndGlobalSection
+EndGlobal
