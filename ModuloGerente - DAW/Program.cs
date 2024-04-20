@@ -1,7 +1,16 @@
+using Microsoft.EntityFrameworkCore;
+using ModuloGerente___DAW.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddDbContext<dulcesaborDbContext>(opt =>
+        opt.UseSqlServer(
+            builder.Configuration.GetConnectionString("equiposDbConnection")
+            )
+);
 
 var app = builder.Build();
 
