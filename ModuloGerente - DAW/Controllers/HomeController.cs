@@ -29,13 +29,55 @@ namespace ModuloGerente___DAW.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-        public IActionResult RedireccionarAOtraPagina()
+        public IActionResult RedireccionarAMesas()
         {
             // Función para redireccionar a las otras páginas
             return RedirectToAction("mesas");
+            return RedirectToAction("pedidosabiertos");
+
         }
 
         public IActionResult mesas()
+        {
+            return View();
+        }
+
+        public IActionResult RedireccionarAPedidosAbiertos()
+        {
+            return RedirectToAction("pedidosabiertos");
+
+        }
+        public IActionResult pedidosabiertos()
+        {
+            return View();
+        }
+
+        public IActionResult RedireccionarAPedidosProceso()
+        {
+            return RedirectToAction("pedidosenproceso");
+
+        }
+        public IActionResult pedidosenproceso()
+        {
+            return View();
+        }
+
+        public IActionResult RedireccionarAPedidosCerrados()
+        {
+            return RedirectToAction("pedidoscerrados");
+
+        }
+        public IActionResult pedidoscerrados()
+        {
+            return View();
+        }
+
+        public IActionResult RedireccionarADetallesA()
+        {
+            return RedirectToAction("detallescuentasabiertas");
+
+        }
+        public IActionResult detallescuentasabiertas()
         {
             return View();
         }
