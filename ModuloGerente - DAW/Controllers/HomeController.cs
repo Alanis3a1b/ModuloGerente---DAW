@@ -16,7 +16,6 @@ namespace ModuloGerente___DAW.Controllers
         public IActionResult Index()
         {
             return View();
-
         }
 
         public IActionResult Privacy()
