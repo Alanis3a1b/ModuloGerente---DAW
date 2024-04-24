@@ -16,6 +16,7 @@ namespace ModuloGerente___DAW.Controllers
         public IActionResult Index()
         {
             return View();
+
         }
 
         public IActionResult Privacy()
@@ -27,6 +28,17 @@ namespace ModuloGerente___DAW.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+        public IActionResult RedireccionarAOtraPagina()
+        {
+            // Función para redireccionar a las otras páginas
+            return RedirectToAction("mesas");
+        }
+
+        public IActionResult mesas()
+        {
+            return View();
         }
     }
 }
