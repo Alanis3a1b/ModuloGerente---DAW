@@ -9,6 +9,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" type="text/css" href=“tu_dominio_web/css_root/flaticon.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 </head>
@@ -42,26 +44,79 @@
                 </div>
             </nav>
         </div>
-        @*Primera fila*@
+    </div>
 
-        <!-- Return-->
-        <nav class="navbar navbar-light bg-light">
-            <div class="container">
+    @*Primera fila*@
+    <nav class="navbar navbar-light bg-light">
+        <div class="container">
+            <div class="navbar-brand d-flex align-items-center mt-3">
+                <i class="bi bi-arrow-left" alt="" width="30" height="24"></i>
+                <button onclick="location.href='@Url.Action("RedireccionarAIndex", "Home")'">MESAS</button>
+            </div>
+        </div>
+    </nav>
+
+    @*Aqui va lo de la cantidad de mesas y los botones de filtrado*@
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <hr>
                 <div class="navbar-brand d-flex align-items-center mt-3">
-                    <i class="bi bi-arrow-left" alt="" width="30" height="24"></i>
-                    <h3 class="ms-3 mb-0">MESAS</h3>
+                    <div class="card text-dark bg-warning mb-3">
+                        <h3>Total mesas ocupadas: 3</h3>
+                    </div>
+                </div>
+
+                <hr>
+                <div class="row p-3" style="max-width: 18rem;">
+                    <button>Filtrar por ocupadas</button>  
+                </div>
+                <div class="col-sm-4" style="max-width: 18rem;">
+                    <button>Filtrar por disponibles</button>
+                </div>
+                <div class="col-sm-8" style="max-width: 18rem;">
+                    <button>Filtrar todas las mesas</button>
+                </div>
+                <hr>
+
+            </div>
+        </div>
+    </div>
+    <!--Fin Container-->
+
+    @*Aqui van las mesas*@
+    <div class="row">
+        <div class="col">
+            <div class="card text-dark bg-warning mb-3" style="max-width: 18rem;">
+                <div class="well">
+                    <hr>
+                    <h3 style="text-align: center;"><b>MESA 1</b></h3>
+                    <hr>
+                    <div>
+                        <i class='bx bx-chair'></i>
+                        <box-icon name='chair'></box-icon> 
+                    </div>
+                    <hr>
+                    <div style="display: flex; justify-content: center;">
+                        @Html.RadioButton("tipo_estado", "Disponible", true, new { id = "disponible" })
+                        Disponible
+                        @Html.RadioButton("tipo_estado", "Ocupado", false, new { id = "ocupado" })
+                        Ocupado
+                    </div>
+
                 </div>
             </div>
-        </nav>
-        <!-- Return-->
-       
+        </div>
+    </div>
+    <!--Fin Container-->
+        
+    @*Footer*@
     <footer style="background-color: #895a22; color: white; padding: 20px;">
         <div class="container text-center">
             <p>Copyright © 2024. Todos los derechos reservados.</p>
         </div>
     </footer>
 
-    <!--Fin Container-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     </div>
 </body>

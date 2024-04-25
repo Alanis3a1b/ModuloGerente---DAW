@@ -29,11 +29,18 @@ namespace ModuloGerente___DAW.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-        public IActionResult RedireccionarAMesas()
+        public IActionResult RedireccionarAIndex()
         {
             // Función para redireccionar a las otras páginas
+            return RedirectToAction("Index");
+
+
+        }
+
+        public IActionResult RedireccionarAMesas()
+        {
             return RedirectToAction("mesas");
-            return RedirectToAction("pedidosabiertos");
+            
 
         }
 
