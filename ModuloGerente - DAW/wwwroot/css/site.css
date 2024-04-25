@@ -20,3 +20,9 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.contenedor-flex {
+    display: flex;
+    justify-content: center; /* Centrar los elementos horizontalmente */
+    gap: 10px; /* Espacio entre los botones */
+}
