@@ -274,18 +274,18 @@
             <div class="row justify-content-center">
                 <div class="col-lg-4 col-md-6 mb-5">
                     <div class="card-body text-center">
-                        <a class="text-decoration-none">
+                        <a class="text-decoration-none href=" @Url.Action("RedireccionarAVentasPorFecha", "Home")"">
                             <i class="bi bi-calendar-event" style="color: #ecb54e; font-size: 75px;"></i>
                         </a>
-                        <a class="card-text fw-bold" href="@Url.Action("RedireccionarAVentasPorFecha", "Home")">VENTAS POR FECHA</a>
+                        <a class="card-text fw-bold" href="@Url.Action("RedireccionarAVentasPorFecha", "Home")"><span style="text-decoration: none;">VENTAS POR FECHA</span></a>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 mb-5">
                     <div class="card-body text-center">
-                        <a class="text-decoration-none" href="#">
+                        <a class="text-decoration-none" href="@Url.Action("RedireccionarAVentasPorMes", "Home")">
                             <i class="bi bi-calendar-minus" style="color: #ecb54e; font-size: 75px;"></i>
                         </a>
-                        <p class="card-text fw-bold mt-3">VENTAS POR MES</p>
+                        <a class="card-text fw-bold mt-3" href="@Url.Action("RedireccionarAVentasPorMes", "Home")">VENTAS POR MES</a>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 mb-5">

@@ -69,7 +69,7 @@ namespace ModuloGerente___DAW.Controllers
         public IActionResult RedireccionarAMesas()
         {
             return RedirectToAction("mesas");
-            
+
 
         }
 
@@ -124,6 +124,16 @@ namespace ModuloGerente___DAW.Controllers
         }
 
         public IActionResult ventasporfecha()
+        {
+            return View();
+        }
+
+        public IActionResult RedireccionarAVentasPorMes()
+        {
+            return RedirectToAction("ventaspormes");
+        }
+
+        public IActionResult ventaspormes()
         {
             return View();
         }
