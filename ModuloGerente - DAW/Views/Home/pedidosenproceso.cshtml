@@ -18,7 +18,7 @@
                     <div class="d-flex">
                         @* Logo *@
                         <a class="navbar-brand me-2 mb-1 d-flex align-items-center" href="#">
-                            <img src="./css/DulceSaborLogo.png">
+                            <img src="/css/img/DulceSaborLogo.png">
                         </a>
                         @* Busqueda *@
                         <form class="input-group w-auto my-auto d-none d-sm-flex">
@@ -40,7 +40,6 @@
             </nav>
         </div>
         <!--NAVAR-->
-
         <!-- Return-->
         <nav class="navbar navbar-light bg-light">
             <div class="container">
@@ -51,224 +50,47 @@
             </div>
         </nav>
         <!-- Return-->
-
+        <!-- Mesas -->
         <div class="container mt-3">
-            <div class="row">
-                <div class="col">
-                    <div class="card text-dark bg-warning mb-3" style="max-width: 18rem;">
+            <div class="row row-cols-1 row-cols-md-3">
+                @foreach (var pedido in (IEnumerable<dynamic>)ViewData["pedidosProceso"])
+                {
+                    <div class="col">
                         <div class="card text-dark bg-warning mb-3" style="max-width: 18rem;">
-                            <div class="card-header">ORDEN ID: </div>
-                            <div class="card-body">
-                                <h5 class="card-title">MESA #1</h5>
-                                <h2 class="DETALLES DEL PEDIDO:"></h2>
+                            <div class="card-header"><h3>ORDEN ID: @pedido.id_pedido</h3></div>
+                            <div class="card-body">                             
+                                @foreach (var detalle in pedido.detalles)
+                                {
+                                    <div class="row">
+                                        <div class="col">
+                                            <!-- Nombre del platillo -->
+                                            <p>@detalle.nombre_comida</p>
+                                            <!-- Agrega los demás detalles del platillo aquí -->
+                                        </div>
+                                        <div class="col">
+                                            <!-- Precio del platillo -->
+                                            <p>$@detalle.costo_comida</p>
+                                            <!-- Agrega otros detalles del precio aquí -->
+                                        </div>
+                                    </div>
+                                }
                                 <div class="row">
                                     <div class="col">
-                                        <!-- Nombre del platillo (ejemplo) -->
-                                        <p>Pizza Margarita</p>
-                                        <p>Pasta Alfredo</p>
-                                        <p>Ensalada César</p>
-                                        <!-- Agrega los demás platos aquí -->
+                                        <p style="font-weight: bold;"> Total</p>
                                     </div>
                                     <div class="col">
-                                        <!-- Precio de cada platillo (ejemplo) -->
-                                        <p>$10.99</p>
-                                        <p>$8.99</p>
-                                        <p>$6.99</p>
-                                        <!-- Agrega los precios correspondientes aquí -->
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col">
-                                        <p>Total</p>
-                                    </div>
-                                    <div class="col">
-                                        <p id="total">$0.00</p>
+                                        <p id="total" style="font-weight: bold;">$@pedido.total</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col">
-                    <div class="card text-dark bg-warning mb-3" style="max-width: 18rem;">
-                        <div class="card text-dark bg-warning mb-3" style="max-width: 18rem;">
-                            <div class="card-header">ORDEN ID: </div>
-                            <div class="card-body">
-                                <h5 class="card-title">MESA #2</h5>
-                                <h2 class="DETALLES DEL PEDIDO:"></h2>
-                                <div class="row">
-                                    <div class="col">
-                                        <!-- Nombre del platillo (ejemplo) -->
-                                        <p>Pizza Margarita</p>
-                                        <p>Pasta Alfredo</p>
-                                        <p>Ensalada César</p>
-                                        <!-- Agrega los demás platos aquí -->
-                                    </div>
-                                    <div class="col">
-                                        <!-- Precio de cada platillo (ejemplo) -->
-                                        <p>$10.99</p>
-                                        <p>$8.99</p>
-                                        <p>$6.99</p>
-                                        <!-- Agrega los precios correspondientes aquí -->
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col">
-                                        <p>Total</p>
-                                    </div>
-                                    <div class="col">
-                                        <p id="total">$0.00</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card text-dark bg-warning mb-3" style="max-width: 18rem;">
-                        <div class="card text-dark bg-warning mb-3" style="max-width: 18rem;">
-                            <div class="card-header">ORDEN ID: </div>
-                            <div class="card-body">
-                                <h5 class="card-title">MESA #3</h5>
-                                <h2 class="DETALLES DEL PEDIDO:"></h2>
-                                <div class="row">
-                                    <div class="col">
-                                        <!-- Nombre del platillo (ejemplo) -->
-                                        <p>Pizza Margarita</p>
-                                        <p>Pasta Alfredo</p>
-                                        <p>Ensalada César</p>
-                                        <!-- Agrega los demás platos aquí -->
-                                    </div>
-                                    <div class="col">
-                                        <!-- Precio de cada platillo (ejemplo) -->
-                                        <p>$10.99</p>
-                                        <p>$8.99</p>
-                                        <p>$6.99</p>
-                                        <!-- Agrega los precios correspondientes aquí -->
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col">
-                                        <p>Total</p>
-                                    </div>
-                                    <div class="col">
-                                        <p id="total">$0.00</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <div class="card text-dark bg-warning mb-3" style="max-width: 18rem;">
-                        <div class="card text-dark bg-warning mb-3" style="max-width: 18rem;">
-                            <div class="card-header">ORDEN ID: </div>
-                            <div class="card-body">
-                                <h5 class="card-title">MESA #4</h5>
-                                <h2 class="DETALLES DEL PEDIDO:"></h2>
-                                <div class="row">
-                                    <div class="col">
-                                        <!-- Nombre del platillo (ejemplo) -->
-                                        <p>Pizza Margarita</p>
-                                        <p>Pasta Alfredo</p>
-                                        <p>Ensalada César</p>
-                                        <!-- Agrega los demás platos aquí -->
-                                    </div>
-                                    <div class="col">
-                                        <!-- Precio de cada platillo (ejemplo) -->
-                                        <p>$10.99</p>
-                                        <p>$8.99</p>
-                                        <p>$6.99</p>
-                                        <!-- Agrega los precios correspondientes aquí -->
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col">
-                                        <p>Total</p>
-                                    </div>
-                                    <div class="col">
-                                        <p id="total">$0.00</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card text-dark bg-warning mb-3" style="max-width: 18rem;">
-                        <div class="card text-dark bg-warning mb-3" style="max-width: 18rem;">
-                            <div class="card-header">ORDEN ID: </div>
-                            <div class="card-body">
-                                <h5 class="card-title">MESA #5</h5>
-                                <h2 class="DETALLES DEL PEDIDO:"></h2>
-                                <div class="row">
-                                    <div class="col">
-                                        <!-- Nombre del platillo (ejemplo) -->
-                                        <p>Pizza Margarita</p>
-                                        <p>Pasta Alfredo</p>
-                                        <p>Ensalada César</p>
-                                        <!-- Agrega los demás platos aquí -->
-                                    </div>
-                                    <div class="col">
-                                        <!-- Precio de cada platillo (ejemplo) -->
-                                        <p>$10.99</p>
-                                        <p>$8.99</p>
-                                        <p>$6.99</p>
-                                        <!-- Agrega los precios correspondientes aquí -->
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col">
-                                        <p>Total</p>
-                                    </div>
-                                    <div class="col">
-                                        <p id="total">$0.00</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card text-dark bg-warning mb-3" style="max-width: 18rem;">
-                        <div class="card text-dark bg-warning mb-3" style="max-width: 18rem;">
-                            <div class="card-header">ORDEN ID: </div>
-                            <div class="card-body">
-                                <h5 class="card-title">MESA #6</h5>
-                                <h2 class="DETALLES DEL PEDIDO:"></h2>
-                                <div class="row">
-                                    <div class="col">
-                                        <!-- Nombre del platillo (ejemplo) -->
-                                        <p>Pizza Margarita</p>
-                                        <p>Pasta Alfredo</p>
-                                        <p>Ensalada César</p>
-                                        <!-- Agrega los demás platos aquí -->
-                                    </div>
-                                    <div class="col">
-                                        <!-- Precio de cada platillo (ejemplo) -->
-                                        <p>$10.99</p>
-                                        <p>$8.99</p>
-                                        <p>$6.99</p>
-                                        <!-- Agrega los precios correspondientes aquí -->
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col">
-                                        <p>Total</p>
-                                    </div>
-                                    <div class="col">
-                                        <p id="total">$0.00</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                }
             </div>
         </div>
 
+
+        <!-- Mesas -->
     </div>
     <footer style="background-color: #895a22; color: white; padding: 20px;">
         <div class="container text-center">
@@ -277,4 +99,3 @@
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-
