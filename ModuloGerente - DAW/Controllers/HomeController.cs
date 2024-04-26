@@ -219,5 +219,27 @@ namespace ModuloGerente___DAW.Controllers
         {
             return View();
         }
+
+        public IActionResult RedireccionarACuentasCerradas()
+        {
+            return RedirectToAction("cuentacerrada");
+
+        }
+
+        public IActionResult cuentacerrada()
+        {
+            return View();
+        }
+
+        public IActionResult RedireccionarAVentasEnLinea()
+        {
+            return RedirectToAction("ventasenlinea");
+
+        }
+
+        public IActionResult ventasenlinea()
+        {
+            return View();
+        }
     }
 }
