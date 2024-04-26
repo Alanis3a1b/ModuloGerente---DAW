@@ -8,6 +8,12 @@ namespace ModuloGerente___DAW.Models
         {
 
         }
+
+        //Tablas añadidas por Diego
+        public DbSet<comida> comida {  get; set; }
+        public DbSet<detalle_de_pedido> detalle_De_Pedidos { get; set; }
+        public DbSet<pedido> pedido { get; set; }
+
         //Tablas pedidos en linea
         public DbSet<pedidos> pedidos { get; set; }
         public DbSet<detalles_pedidos> detalles_pedidos { get; set; }

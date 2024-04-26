@@ -95,6 +95,23 @@ namespace ModuloGerente___DAW.Controllers
         }
         public IActionResult pedidosenproceso()
         {
+            var pedidosProceso = (from dp in _dulcesaborDbContext.detalle_De_Pedidos
+                                  join p in _dulcesaborDbContext.pedido on dp.id_pedido equals p.id_pedido
+                                  join c in _dulcesaborDbContext.comida on dp.id_comida equals c.id_comida
+                                  where p.estado == "En Proceso"
+                                  group new { dp, p, c } by p.id_pedido into g
+                                  select new
+                                  {
+                                      id_pedido = g.Key,
+                                      detalles = g.Select(x => new
+                                      {
+                                          nombre_comida = x.c.nombre,
+                                          costo_comida = x.c.precio
+                                      }),
+                                      total = g.Sum(x => x.c.precio)
+                                  }).ToList();
+
+            ViewData["pedidosProceso"] = pedidosProceso;
             return View();
         }
 
@@ -105,6 +122,23 @@ namespace ModuloGerente___DAW.Controllers
         }
         public IActionResult pedidoscerrados()
         {
+            var pedidosCerrados = (from dp in _dulcesaborDbContext.detalle_De_Pedidos
+                                   join p in _dulcesaborDbContext.pedido on dp.id_pedido equals p.id_pedido
+                                   join c in _dulcesaborDbContext.comida on dp.id_comida equals c.id_comida
+                                   where p.estado == "Entregado"
+                                   group new { dp, p, c } by p.id_pedido into g
+                                   select new
+                                   {
+                                       id_pedido = g.Key,
+                                       detalles = g.Select(x => new
+                                       {
+                                           nombre_comida = x.c.nombre,
+                                           costo_comida = x.c.precio
+                                       }),
+                                       total = g.Sum(x => x.c.precio)
+                                   }).ToList();
+
+            ViewData["pedidosCerrados"] = pedidosCerrados;
             return View();
         }
 
