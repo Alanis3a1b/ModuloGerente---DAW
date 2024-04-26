@@ -26,9 +26,9 @@ namespace ModuloGerente___DAW.Models
         public DbSet<cargos> cargos { get; set; }
         public DbSet<categorias> categorias { get; set; }
         public DbSet<combos> combos { get; set; }
-        public DbSet<cuenta> cuenta { get; set; }
+        public DbSet<Cuenta> cuenta { get; set; }
         public DbSet<detalle_fac> detalle_fac { get; set; }
-        public DbSet<Detalle_pedidos> Detalles_pedidos { get; set; }
+        public DbSet<Detalle_pedido> Detalles_pedidos { get; set; }
         public DbSet<empleados> empleados { get; set; }
         public DbSet<encabezado_fac> encabezado_fac { get; set; }
         public DbSet<estados> estados { get; set; }

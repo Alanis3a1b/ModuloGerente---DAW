@@ -84,7 +84,7 @@ namespace ModuloGerente___DAW.Models
         public string descripcion { get; set; }
         public decimal precio { get; set; }
         public string imagen { get; set; }
-        public int id_decimal { get; set; }
+        public int id_estado { get; set; }
 
 
     }
@@ -96,14 +96,14 @@ namespace ModuloGerente___DAW.Models
 
     }
 
-    public class cuenta
+    public class Cuenta
     {
-        public int id_cuenta { get; set; }
-        public int id_mesa { get; set; }
-        public string nombre { get; set; }
-        public int cantidad_personas { get; set; }
-        public string estado_cuenta { get; set; }
-        public DateTime fecha_hora { get; set; }
+        public int Id_cuenta { get; set; }
+        public int Id_mesa { get; set; }
+        public string Nombre { get; set; }
+        public int Cantidad_Personas { get; set; }
+        public string Estado_cuenta { get; set; }
+        public DateTime Fecha_hora { get; set; }
 
     }
 
@@ -119,7 +119,7 @@ namespace ModuloGerente___DAW.Models
     }
 
     //Esta es parecida específica para los pedidos del restaurante
-    public class Detalle_pedidos
+    public class Detalle_pedido
     {
         public int Id_Detallecuenta { get; set; }
         public int Id_cuenta { get; set; }
