@@ -44,233 +44,234 @@
                 </div>
             </nav>
         </div>
-    </div>
+        @*Primera fila*@
+        <nav class="navbar navbar-light bg-light">
+            <div class="container">
+                <div class="navbar-brand d-flex align-items-center mt-3">
+                    <i class="bi bi-arrow-left" alt="" width="30" height="24"></i>
+                    <button onclick="location.href='@Url.Action("RedireccionarAIndex", "Home")'">MESAS</button>
+                </div>
+            </div>
+        </nav>
 
-    @*Primera fila*@
-    <nav class="navbar navbar-light bg-light">
+        @*Aqui va lo de la cantidad de mesas y los botones de filtrado*@
         <div class="container">
-            <div class="navbar-brand d-flex align-items-center mt-3">
-                <i class="bi bi-arrow-left" alt="" width="30" height="24"></i>
-                <button onclick="location.href='@Url.Action("RedireccionarAIndex", "Home")'">MESAS</button>
+            <div class="row">
+                <div class="col">
+                    <hr>
+                    <div class="contenedor-flex">
+                        <div class="card text-dark bg-warning mb-3">
+                            <h3>Total mesas ocupadas: 3</h3>
+                        </div>
+                        <div class="card text-dark bg-warning mb-3">
+                            <h3>Total mesas disponibles: 3</h3>
+                        </div>
+                    </div>
+
+
+                    <hr>
+                    <div class="contenedor-flex">
+                        <button>Filtrar por ocupadas</button>
+                        <button>Filtrar por disponibles</button>
+                        <button>Filtrar todas las mesas</button>
+                    </div>
+                    <br />
+
+                </div>
             </div>
         </div>
-    </nav>
-
-    @*Aqui va lo de la cantidad de mesas y los botones de filtrado*@
-    <div class="container">
+        <!--Fin Container-->
+        @*Aqui van las mesas*@
         <div class="row">
-            <div class="col">
-                <hr>
-                <div class="contenedor-flex">
-                    <div class="card text-dark bg-warning mb-3">
-                        <h3>Total mesas ocupadas: 3</h3>
-                    </div>
-                    <div class="card text-dark bg-warning mb-3">
-                        <h3>Total mesas disponibles: 3</h3>
+            <div class="col-md-3">
+                <div class="card text-dark bg-warning mb-3" style="max-width: 18rem;">
+                    <div class="well">
+                        <hr>
+                        <h3 style="text-align: center;"><b>MESA 1</b></h3>
+                        <hr>
+                        <div style="display: flex; justify-content: center;">
+                            @*Falta solucionar para que se vean las imágenes*@
+                            <img src="/css/img/silla.png" width="250" height="250" />
+
+                        </div>
+                        <hr>
+                        <div style="display: flex; justify-content: center;">
+                            @Html.RadioButton("tipo_estado", "Disponible", true, new { id = "disponible" })
+                            Disponible
+                            @Html.RadioButton("tipo_estado", "Ocupado", false, new { id = "ocupado" })
+                            Ocupado
+                        </div>
+
                     </div>
                 </div>
-                
+            </div>
 
-                <hr>
-                <div class="contenedor-flex">
-                    <button>Filtrar por ocupadas</button>  
-                    <button>Filtrar por disponibles</button>
-                    <button>Filtrar todas las mesas</button>
+            <div class="col-md-3">
+                <div class="card text-dark bg-warning mb-3" style="max-width: 18rem;">
+                    <div class="well">
+                        <hr>
+                        <h3 style="text-align: center;"><b>MESA 2</b></h3>
+                        <hr>
+                        <div style="display: flex; justify-content: center;">
+                            @*Falta solucionar para que se vean las imágenes*@
+                            <img src="/css/img/silla.png" width="250" height="250" />
+
+                        </div>
+                        <hr>
+                        <div style="display: flex; justify-content: center;">
+                            @Html.RadioButton("tipo_estado", "Disponible", true, new { id = "disponible" })
+                            Disponible
+                            @Html.RadioButton("tipo_estado", "Ocupado", false, new { id = "ocupado" })
+                            Ocupado
+                        </div>
+
+                    </div>
                 </div>
-                <br/>
+            </div>
 
+            <div class="col-md-3">
+                <div class="card text-dark bg-warning mb-3" style="max-width: 18rem;">
+                    <div class="well">
+                        <hr>
+                        <h3 style="text-align: center;"><b>MESA 3</b></h3>
+                        <hr>
+                        <div style="display: flex; justify-content: center;">
+                            @*Falta solucionar para que se vean las imágenes*@
+                            <img src="/css/img/silla.png" width="250" height="250" />
+
+                        </div>
+                        <hr>
+                        <div style="display: flex; justify-content: center;">
+                            @Html.RadioButton("tipo_estado", "Disponible", true, new { id = "disponible" })
+                            Disponible
+                            @Html.RadioButton("tipo_estado", "Ocupado", false, new { id = "ocupado" })
+                            Ocupado
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="card text-dark bg-warning mb-3" style="max-width: 18rem;">
+                    <div class="well">
+                        <hr>
+                        <h3 style="text-align: center;"><b>MESA 4</b></h3>
+                        <hr>
+                        <div style="display: flex; justify-content: center;">
+                            @*Falta solucionar para que se vean las imágenes*@
+                            <img src="/css/img/silla.png" width="250" height="250" />
+
+                        </div>
+                        <hr>
+                        <div style="display: flex; justify-content: center;">
+                            @Html.RadioButton("tipo_estado", "Disponible", true, new { id = "disponible" })
+                            Disponible
+                            @Html.RadioButton("tipo_estado", "Ocupado", false, new { id = "ocupado" })
+                            Ocupado
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="card text-dark bg-warning mb-3" style="max-width: 18rem;">
+                    <div class="well">
+                        <hr>
+                        <h3 style="text-align: center;"><b>MESA 5</b></h3>
+                        <hr>
+                        <div style="display: flex; justify-content: center;">
+                            @*Falta solucionar para que se vean las imágenes*@
+                            <img src="/css/img/silla.png" width="250" height="250" />
+
+                        </div>
+                        <hr>
+                        <div style="display: flex; justify-content: center;">
+                            @Html.RadioButton("tipo_estado", "Disponible", true, new { id = "disponible" })
+                            Disponible
+                            @Html.RadioButton("tipo_estado", "Ocupado", false, new { id = "ocupado" })
+                            Ocupado
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="card text-dark bg-warning mb-3" style="max-width: 18rem;">
+                    <div class="well">
+                        <hr>
+                        <h3 style="text-align: center;"><b>MESA 6</b></h3>
+                        <hr>
+                        <div style="display: flex; justify-content: center;">
+                            @*Falta solucionar para que se vean las imágenes*@
+                            <img src="/css/img/silla.png" width="250" height="250" />
+
+                        </div>
+                        <hr>
+                        <div style="display: flex; justify-content: center;">
+                            @Html.RadioButton("tipo_estado", "Disponible", true, new { id = "disponible" })
+                            Disponible
+                            @Html.RadioButton("tipo_estado", "Ocupado", false, new { id = "ocupado" })
+                            Ocupado
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="card text-dark bg-warning mb-3" style="max-width: 18rem;">
+                    <div class="well">
+                        <hr>
+                        <h3 style="text-align: center;"><b>MESA 7</b></h3>
+                        <hr>
+                        <div style="display: flex; justify-content: center;">
+                            @*Falta solucionar para que se vean las imágenes*@
+                            <img src="/css/img/silla.png" width="250" height="250" />
+
+                        </div>
+                        <hr>
+                        <div style="display: flex; justify-content: center;">
+                            @Html.RadioButton("tipo_estado", "Disponible", true, new { id = "disponible" })
+                            Disponible
+                            @Html.RadioButton("tipo_estado", "Ocupado", false, new { id = "ocupado" })
+                            Ocupado
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="card text-dark bg-warning mb-3" style="max-width: 18rem;">
+                    <div class="well">
+                        <hr>
+                        <h3 style="text-align: center;"><b>MESA 8</b></h3>
+                        <hr>
+                        <div style="display: flex; justify-content: center;">
+                            @*Falta solucionar para que se vean las imágenes*@
+                            <img src="/css/img/silla.png" width="250" height="250" />
+
+                        </div>
+                        <hr>
+                        <div style="display: flex; justify-content: center;">
+                            @Html.RadioButton("tipo_estado", "Disponible", true, new { id = "disponible" })
+                            Disponible
+                            @Html.RadioButton("tipo_estado", "Ocupado", false, new { id = "ocupado" })
+                            Ocupado
+                        </div>
+
+                    </div>
+                </div>
             </div>
         </div>
+        <!--Fin Container-->
+
     </div>
-    <!--Fin Container-->
 
-    @*Aqui van las mesas*@
-    <div class="row">
-        <div class="col-md-3">
-            <div class="card text-dark bg-warning mb-3" style="max-width: 18rem;">
-                <div class="well">
-                    <hr>
-                    <h3 style="text-align: center;"><b>MESA 1</b></h3>
-                    <hr>
-                    <div style="display: flex; justify-content: center;">
-                        @*Falta solucionar para que se vean las imágenes*@
-                        <img src="/css/img/silla.png" width="250" height="250" />
-
-                    </div>
-                    <hr>
-                    <div style="display: flex; justify-content: center;">
-                        @Html.RadioButton("tipo_estado", "Disponible", true, new { id = "disponible" })
-                        Disponible
-                        @Html.RadioButton("tipo_estado", "Ocupado", false, new { id = "ocupado" })
-                        Ocupado
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-3">
-            <div class="card text-dark bg-warning mb-3" style="max-width: 18rem;">
-                <div class="well">
-                    <hr>
-                    <h3 style="text-align: center;"><b>MESA 2</b></h3>
-                    <hr>
-                    <div style="display: flex; justify-content: center;">
-                        @*Falta solucionar para que se vean las imágenes*@
-                        <img src="/css/img/silla.png" width="250" height="250" />
-
-                    </div>
-                    <hr>
-                    <div style="display: flex; justify-content: center;">
-                        @Html.RadioButton("tipo_estado", "Disponible", true, new { id = "disponible" })
-                        Disponible
-                        @Html.RadioButton("tipo_estado", "Ocupado", false, new { id = "ocupado" })
-                        Ocupado
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-3">
-            <div class="card text-dark bg-warning mb-3" style="max-width: 18rem;">
-                <div class="well">
-                    <hr>
-                    <h3 style="text-align: center;"><b>MESA 3</b></h3>
-                    <hr>
-                    <div style="display: flex; justify-content: center;">
-                        @*Falta solucionar para que se vean las imágenes*@
-                        <img src="/css/img/silla.png" width="250" height="250" />
-
-                    </div>
-                    <hr>
-                    <div style="display: flex; justify-content: center;">
-                        @Html.RadioButton("tipo_estado", "Disponible", true, new { id = "disponible" })
-                        Disponible
-                        @Html.RadioButton("tipo_estado", "Ocupado", false, new { id = "ocupado" })
-                        Ocupado
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-3">
-            <div class="card text-dark bg-warning mb-3" style="max-width: 18rem;">
-                <div class="well">
-                    <hr>
-                    <h3 style="text-align: center;"><b>MESA 4</b></h3>
-                    <hr>
-                    <div style="display: flex; justify-content: center;">
-                        @*Falta solucionar para que se vean las imágenes*@
-                        <img src="/css/img/silla.png" width="250" height="250" />
-
-                    </div>
-                    <hr>
-                    <div style="display: flex; justify-content: center;">
-                        @Html.RadioButton("tipo_estado", "Disponible", true, new { id = "disponible" })
-                        Disponible
-                        @Html.RadioButton("tipo_estado", "Ocupado", false, new { id = "ocupado" })
-                        Ocupado
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-3">
-            <div class="card text-dark bg-warning mb-3" style="max-width: 18rem;">
-                <div class="well">
-                    <hr>
-                    <h3 style="text-align: center;"><b>MESA 5</b></h3>
-                    <hr>
-                    <div style="display: flex; justify-content: center;">
-                        @*Falta solucionar para que se vean las imágenes*@
-                        <img src="/css/img/silla.png" width="250" height="250" />
-
-                    </div>
-                    <hr>
-                    <div style="display: flex; justify-content: center;">
-                        @Html.RadioButton("tipo_estado", "Disponible", true, new { id = "disponible" })
-                        Disponible
-                        @Html.RadioButton("tipo_estado", "Ocupado", false, new { id = "ocupado" })
-                        Ocupado
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-3">
-            <div class="card text-dark bg-warning mb-3" style="max-width: 18rem;">
-                <div class="well">
-                    <hr>
-                    <h3 style="text-align: center;"><b>MESA 6</b></h3>
-                    <hr>
-                    <div style="display: flex; justify-content: center;">
-                        @*Falta solucionar para que se vean las imágenes*@
-                        <img src="/css/img/silla.png" width="250" height="250" />
-
-                    </div>
-                    <hr>
-                    <div style="display: flex; justify-content: center;">
-                        @Html.RadioButton("tipo_estado", "Disponible", true, new { id = "disponible" })
-                        Disponible
-                        @Html.RadioButton("tipo_estado", "Ocupado", false, new { id = "ocupado" })
-                        Ocupado
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-3">
-            <div class="card text-dark bg-warning mb-3" style="max-width: 18rem;">
-                <div class="well">
-                    <hr>
-                    <h3 style="text-align: center;"><b>MESA 7</b></h3>
-                    <hr>
-                    <div style="display: flex; justify-content: center;">
-                        @*Falta solucionar para que se vean las imágenes*@
-                        <img src="/css/img/silla.png" width="250" height="250" />
-
-                    </div>
-                    <hr>
-                    <div style="display: flex; justify-content: center;">
-                        @Html.RadioButton("tipo_estado", "Disponible", true, new { id = "disponible" })
-                        Disponible
-                        @Html.RadioButton("tipo_estado", "Ocupado", false, new { id = "ocupado" })
-                        Ocupado
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-3">
-            <div class="card text-dark bg-warning mb-3" style="max-width: 18rem;">
-                <div class="well">
-                    <hr>
-                    <h3 style="text-align: center;"><b>MESA 8</b></h3>
-                    <hr>
-                    <div style="display: flex; justify-content: center;">
-                        @*Falta solucionar para que se vean las imágenes*@
-                        <img src="/css/img/silla.png" width="250" height="250" />
-
-                    </div>
-                    <hr>
-                    <div style="display: flex; justify-content: center;">
-                        @Html.RadioButton("tipo_estado", "Disponible", true, new { id = "disponible" })
-                        Disponible
-                        @Html.RadioButton("tipo_estado", "Ocupado", false, new { id = "ocupado" })
-                        Ocupado
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </div>
-    <!--Fin Container-->
+   
         
     @*Footer*@
     <footer style="background-color: #895a22; color: white; padding: 20px;">
