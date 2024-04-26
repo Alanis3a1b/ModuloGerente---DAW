@@ -4,6 +4,7 @@
 @{
     ViewData["Title"] = "Pedidos abiertos";
 }
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -70,115 +71,48 @@
 
         @*Aquí van las listas de los pedidos*@
         <div class="container mt-3">
-            <div class="row">
-                <div class="col">
-                    <div class="card text-dark bg-warning mb-3" style="max-width: 18rem;">
+            <div class="row row-cols-1 row-cols-md-3">
+                @*Basicamente, foreach es "por cada" elemento que saque de la funcion que le establecemos
+                    en Viewdata["pedidosAbiertos"], lo agregará en una tablita establecida en html en el ORDEN ID
+                *@
+                @foreach (var pedido in (IEnumerable<dynamic>)ViewData["pedidosAbiertos"])
+                {
+                    <div class="col">
                         <div class="card text-dark bg-warning mb-3" style="max-width: 18rem;">
-                            @* @foreach (var pedidos in (IEnumerable<dynamic>)ViewData["listadoOrdenes"])
-                            {
-                                <div class="card-header">ORDEN ID: @pedidos.id_cuenta</div>
-                                <div class="card-body">
-                                    <h5 class="card-title">MESA @pedidos.id_mesa</h5>
-                                    <h2 class="DETALLES DEL PEDIDO:"></h2>
-                                    <div class="row">
-                                        <div class="col">
-                                            <!-- Nombre del platillo (ejemplo) -->
-                                            <p>@pedidos.tipo_plato</p>
-                                            <p>@pedidos.tipo_plato</p>
-                                            <p>@pedidos.tipo_plato</p>
-                                            <!-- Agrega los demás platos aquí -->
-                                        </div>
-                                        <div class="col">
-                                            <!-- Precio de cada platillo (ejemplo) -->
-                                            <p>@pedidos.total_plato</p>
-                                            <p>@pedidos.total_plato</p>
-                                            <p>@pedidos.total_plato</p>
-                                            <!-- Agrega los precios correspondientes aquí -->
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col">
-                                            <p>Total</p>
-                                        </div>
-                                        <div class="col">
-                                            <p id="total">@pedidos.total_cobrado</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            } *@
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card text-dark bg-warning mb-3" style="max-width: 18rem;">
-                        <div class="card text-dark bg-warning mb-3" style="max-width: 18rem;">
-                            <div class="card-header">ORDEN ID: </div>
+                            <div class="card-header"><h3>ORDEN ID: @pedido.id_pedido</h3></div>
                             <div class="card-body">
-                                <h5 class="card-title">MESA #1</h5>
-                                <h2 class="DETALLES DEL PEDIDO:"></h2>
+                                @*Aquí está tomando los demás datos del id que tomo*@
+                                @foreach (var detalle in pedido.detalles)
+                                {
+                                    <div class="row">
+                                        <div class="col">
+                                            <!-- Nombre del platillo -->
+                                            <p>@detalle.nombre_comida</p>
+                                        </div>
+                                        <div class="col">
+                                            <!-- Precio del platillo -->
+                                            <p>$@detalle.costo_comida</p>
+                                        </div>
+                                    </div>
+                                    
+                                }
                                 <div class="row">
                                     <div class="col">
-                                        <!-- Nombre del platillo (ejemplo) -->
-                                        <p>Pizza Margarita</p>
-                                        <p>Pasta Alfredo</p>
-                                        <p>Ensalada César</p>
-                                        <!-- Agrega los demás platos aquí -->
+                                        <p style="font-weight: bold;"> Total</p>
                                     </div>
                                     <div class="col">
-                                        <!-- Precio de cada platillo (ejemplo) -->
-                                        <p>$10.99</p>
-                                        <p>$8.99</p>
-                                        <p>$6.99</p>
-                                        <!-- Agrega los precios correspondientes aquí -->
+                                        <p id="total" style="font-weight: bold;">$@pedido.total</p>
                                     </div>
                                 </div>
-                                <div class="row">
+                                <hr>
                                     <div class="col">
-                                        <p>Total</p>
+                                        @*Estado abierto tendrían que salir*@
+                                        <p>Estado: @pedido.estado</p>
                                     </div>
-                                    <div class="col">
-                                        <p id="total">$0.00</p>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col">
-                    <div class="card text-dark bg-warning mb-3" style="max-width: 18rem;">
-                        <div class="card text-dark bg-warning mb-3" style="max-width: 18rem;">
-                            <div class="card-header">ORDEN ID: </div>
-                            <div class="card-body">
-                                <h5 class="card-title">MESA #2</h5>
-                                <h2 class="DETALLES DEL PEDIDO:"></h2>
-                                <div class="row">
-                                    <div class="col">
-                                        <!-- Nombre del platillo (ejemplo) -->
-                                        <p>Pizza Margarita</p>
-                                        <p>Pasta Alfredo</p>
-                                        <p>Ensalada César</p>
-                                        <!-- Agrega los demás platos aquí -->
-                                    </div>
-                                    <div class="col">
-                                        <!-- Precio de cada platillo (ejemplo) -->
-                                        <p>$10.99</p>
-                                        <p>$8.99</p>
-                                        <p>$6.99</p>
-                                        <!-- Agrega los precios correspondientes aquí -->
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col">
-                                        <p>Total</p>
-                                    </div>
-                                    <div class="col">
-                                        <p id="total">$0.00</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                }
             </div>
         </div>
 

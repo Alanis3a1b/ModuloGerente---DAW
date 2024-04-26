@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ModuloGerente___DAW.Models;
 using System.Diagnostics;
+using System.Runtime.Intrinsics.Arm;
 
 namespace ModuloGerente___DAW.Controllers
 {
@@ -24,25 +25,6 @@ namespace ModuloGerente___DAW.Controllers
 
         public IActionResult Index()
         {
-
-            //Listado para invocar los pedidos de restaurante
-            //var listadoDeOrdenes = (from e in _dulcesaborDbContext.cuenta
-            //                        join m in _dulcesaborDbContext.mesas on e.id_mesa equals m.id_mesa
-            //                        join n in _dulcesaborDbContext.encabezado_fac on e.id_cuenta equals n.id_cliente
-            //                        join dp in _dulcesaborDbContext.Detalles_pedidos on e.id_cuenta equals dp.id_cuenta
-            //                        join df in _dulcesaborDbContext.detalle_fac on dp.id_detallecuenta equals df.id_detallepedido
-            //                        join ef in _dulcesaborDbContext.encabezado_fac on df.id_factura equals ef.id_factura
-            //                        select new
-            //                        {
-            //                            OrdenID = e.id_cuenta,
-            //                            MesaID = e.id_mesa,
-            //                            ClienteID = ef.id_cliente,
-            //                            Plato = dp.tipo_plato,
-            //                            precio = df.total_plato,
-            //                            TOTAL = ef.total_cobrado                                        
-
-            //                        }).ToList();
-            //ViewData["listadoOrdenes"] = listadoDeOrdenes;
 
             return View();
         }
@@ -85,6 +67,29 @@ namespace ModuloGerente___DAW.Controllers
         }
         public IActionResult pedidosabiertos()
         {
+            //Listado para invocar los pedidos de restaurante
+            var pedidosAbiertos = (from dp in _dulcesaborDbContext.detalle_de_pedido
+                                   join p in _dulcesaborDbContext.pedido on dp.id_pedido equals p.id_pedido
+                                   join c in _dulcesaborDbContext.comida on dp.id_comida equals c.id_comida
+                                   where p.estado == "Abierto"
+                                   group new { dp, p, c } by p.id_pedido into g
+                                   select new
+                                   {
+                                       estado = _dulcesaborDbContext.pedido.FirstOrDefault(p => p.id_pedido == g.Key).estado,
+                                       id_pedido = g.Key,
+                                       detalles = g.Select(x => new
+                                       {
+                                           nombre_comida = x.c.nombre,
+                                           costo_comida = x.c.precio,
+                                       }),
+                                       total = g.Sum(x => x.c.precio)
+                                   }).ToList();
+
+            ViewData["pedidosAbiertos"] = pedidosAbiertos;
+
+
+
+            ViewData["pedidosAbiertos"] = pedidosAbiertos;
             return View();
         }
 
