@@ -11,3 +11,9 @@
 .centrar {
 padding-left: 35%;
 }
+
+.custom-input {
+    background-color: transparent !important;
+    border-radius: 5px !important;
+    border: 1px solid !important;
+}

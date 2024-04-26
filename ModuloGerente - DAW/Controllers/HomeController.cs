@@ -88,5 +88,15 @@ namespace ModuloGerente___DAW.Controllers
         {
             return View();
         }
+
+        public IActionResult RedireccionarAVentasPorFecha()
+        {
+            return RedirectToAction("ventasporfecha");
+        }
+
+        public IActionResult ventasporfecha()
+        {
+            return View();
+        }
     }
 }
