@@ -8,13 +8,12 @@ namespace ModuloGerente___DAW.Models
         {
 
         }
-
         //Tablas añadidas por Diego
-        public DbSet<comida> comida {  get; set; }
-        public DbSet<detalle_de_pedido> detalle_De_Pedidos { get; set; }
+        public DbSet<comida> comida { get; set; }
+        public DbSet<detalle_de_pedido> detalle_de_pedido { get; set; }
         public DbSet<pedido> pedido { get; set; }
+        //
 
-        //Tablas pedidos en linea
         public DbSet<pedidos> pedidos { get; set; }
         public DbSet<detalles_pedidos> detalles_pedidos { get; set; }
         public DbSet<comentarios> comentarios { get; set; }
@@ -23,7 +22,7 @@ namespace ModuloGerente___DAW.Models
         public DbSet<usuarios> usuarios { get; set; }
 
         //Tablas pedidos en restaurante
-        public DbSet<cargos> cargos { get; set; }
+       // public DbSet<cargos> cargos { get; set; }
         public DbSet<categorias> categorias { get; set; }
         public DbSet<combos> combos { get; set; }
         public DbSet<Cuenta> cuenta { get; set; }
@@ -37,8 +36,6 @@ namespace ModuloGerente___DAW.Models
         public DbSet<items_promo> items_promo { get; set; }
         public DbSet<mesas> mesas { get; set; }
         public DbSet<promociones> promociones { get; set; }
-
-
 
 
 

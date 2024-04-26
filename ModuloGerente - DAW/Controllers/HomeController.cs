@@ -15,11 +15,11 @@ namespace ModuloGerente___DAW.Controllers
         //}
 
         private readonly dulcesaborDbContext _dulcesaborDbContext;
-
-        public HomeController(dulcesaborDbContext dulcesaborDbContext)
+        public HomeController(dulcesaborDbContext dulcesaborDbContext/*, pedidosContext pedidosContext*/)
         {
             _dulcesaborDbContext = dulcesaborDbContext;
         }
+
 
 
         public IActionResult Index()
@@ -95,7 +95,7 @@ namespace ModuloGerente___DAW.Controllers
         }
         public IActionResult pedidosenproceso()
         {
-            var pedidosProceso = (from dp in _dulcesaborDbContext.detalle_De_Pedidos
+            var pedidosProceso = (from dp in _dulcesaborDbContext.detalle_de_pedido
                                   join p in _dulcesaborDbContext.pedido on dp.id_pedido equals p.id_pedido
                                   join c in _dulcesaborDbContext.comida on dp.id_comida equals c.id_comida
                                   where p.estado == "En Proceso"
@@ -122,7 +122,7 @@ namespace ModuloGerente___DAW.Controllers
         }
         public IActionResult pedidoscerrados()
         {
-            var pedidosCerrados = (from dp in _dulcesaborDbContext.detalle_De_Pedidos
+            var pedidosCerrados = (from dp in _dulcesaborDbContext.detalle_de_pedido
                                    join p in _dulcesaborDbContext.pedido on dp.id_pedido equals p.id_pedido
                                    join c in _dulcesaborDbContext.comida on dp.id_comida equals c.id_comida
                                    where p.estado == "Entregado"

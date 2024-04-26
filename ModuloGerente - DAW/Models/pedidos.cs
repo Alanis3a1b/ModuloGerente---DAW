@@ -71,15 +71,16 @@ namespace ModuloGerente___DAW.Models
     }
 
     //Tablas de la parte de pedidos en el restaurante
-    public class cargos
+   /* public class cargos
     {
         public int id_cargos { get; set; }
         public BinaryData cargo { get; set; }
 
-    }
+    }*/
 
     public class combos
     {
+        [Key]
         public int id_combo { get; set; }
         public string descripcion { get; set; }
         public decimal precio { get; set; }
@@ -91,6 +92,7 @@ namespace ModuloGerente___DAW.Models
 
     public class categorias
     {
+        [Key]
         public int id_categoria { get; set; }
         public string categoria { get; set; }
 
@@ -98,17 +100,19 @@ namespace ModuloGerente___DAW.Models
 
     public class Cuenta
     {
+        [Key]
         public int Id_cuenta { get; set; }
         public int Id_mesa { get; set; }
         public string Nombre { get; set; }
         public int Cantidad_Personas { get; set; }
         public string Estado_cuenta { get; set; }
         public DateTime Fecha_hora { get; set; }
-
     }
+
 
     public class detalle_fac
     {
+        [Key]
         public int id_detallefac { get; set; }
         public int id_factura { get; set; }
         public int id_detallepedido { get; set; }
@@ -121,18 +125,20 @@ namespace ModuloGerente___DAW.Models
     //Esta es parecida específica para los pedidos del restaurante
     public class Detalle_pedido
     {
-        public int Id_Detallecuenta { get; set; }
+        [Key]
+        public int Id_DetalleCuenta { get; set; }
         public int Id_cuenta { get; set; }
         public int Id_plato { get; set; }
         public int Cantidad { get; set; }
         public string Estado { get; set; }
         public string Tipo_Plato { get; set; }
-        public decimal Precio { get; set; }
-
+        public decimal precio {  set; get; }
     }
+
 
     public class empleados
     {
+        [Key]   
         public int id_empleado { get; set; }
         public string nombre { get; set; }
         public string apellido { get; set; }
@@ -147,6 +153,7 @@ namespace ModuloGerente___DAW.Models
 
     public class encabezado_fac
     {
+        [Key]
         public int id_factura { get; set; }
         public int id_pedido { get; set; }
         public int id_cliente { get; set; }
@@ -158,6 +165,7 @@ namespace ModuloGerente___DAW.Models
 
     public class estados
     {
+        [Key]
         public int id_estado { get; set; }
         public string nombre { get; set; }
         public string tipo_estado { get; set; }
@@ -165,12 +173,14 @@ namespace ModuloGerente___DAW.Models
 
     public class items_combo
     {
+        [Key]
         public int id_combo { get; set; }
         public int id_item_menu { get; set; }
     }
 
     public class items_menu
     {
+        [Key]
         public int id_item_menu { get; set; }
         public string nombre { get; set; }
         public string descripcion { get; set; }
@@ -183,6 +193,7 @@ namespace ModuloGerente___DAW.Models
 
     public class items_promo
     {
+        [Key]
         public int id_promo { get; set; }
         public int id_item_menu { get; set; }
 
@@ -190,6 +201,7 @@ namespace ModuloGerente___DAW.Models
 
     public class mesas
     {
+        [Key]
         public int id_mesa { get; set; }
         public int cantidad_personas { get; set; }
         public int id_estado { get; set; }
@@ -199,6 +211,7 @@ namespace ModuloGerente___DAW.Models
 
     public class promociones
     {
+        [Key]
         public int id_promo { get; set; }
         public string descripcion { get; set; }
         public decimal precio { get; set; }
