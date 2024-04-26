@@ -119,15 +119,15 @@ namespace ModuloGerente___DAW.Models
     }
 
     //Esta es parecida específica para los pedidos del restaurante
-    public class Detalles_pedidos
+    public class Detalle_pedidos
     {
-        public int id_detallecuenta { get; set; }
-        public int id_cuenta { get; set; }
-        public int id_plato { get; set; }
-        public int cantidad { get; set; }
-        public string estado { get; set; }
-        public string tipo_plato { get; set; }
-        public decimal precio { get; set; }
+        public int Id_Detallecuenta { get; set; }
+        public int Id_cuenta { get; set; }
+        public int Id_plato { get; set; }
+        public int Cantidad { get; set; }
+        public string Estado { get; set; }
+        public string Tipo_Plato { get; set; }
+        public decimal Precio { get; set; }
 
     }
 

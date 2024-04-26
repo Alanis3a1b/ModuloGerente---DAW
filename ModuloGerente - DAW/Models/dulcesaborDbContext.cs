@@ -28,7 +28,7 @@ namespace ModuloGerente___DAW.Models
         public DbSet<combos> combos { get; set; }
         public DbSet<cuenta> cuenta { get; set; }
         public DbSet<detalle_fac> detalle_fac { get; set; }
-        public DbSet<Detalles_pedidos> Detalles_pedidos { get; set; }
+        public DbSet<Detalle_pedidos> Detalles_pedidos { get; set; }
         public DbSet<empleados> empleados { get; set; }
         public DbSet<encabezado_fac> encabezado_fac { get; set; }
         public DbSet<estados> estados { get; set; }
