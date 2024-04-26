@@ -115,6 +115,54 @@ namespace ModuloGerente___DAW.Controllers
             return View();
         }
 
+        /* 
+         public IActionResult pedidosenproceso()
+        {
+            var pedidosProceso = (from dp in _dulcesaborDbContext.detalles_pedidos
+                                  join p in _dulcesaborDbContext.pedidos on dp.id_pedido equals p.id_pedido
+                                  join c in _dulcesaborDbContext.items_menu on dp.id_comida equals c.id_item_menu
+                                  where p.estado == "En Proceso"
+                                  group new { dp, p, c } by p.id_pedido into g
+                                  select new
+                                  {
+                                      id_pedido = g.Key,
+                                      detalles = g.Select(x => new
+                                      {
+                                          nombre_comida = x.c.nombre,
+                                          costo_comida = x.c.precio
+                                      }),
+                                      total = g.Sum(x => x.c.precio)
+                                  }).ToList();
+
+            ViewData["pedidosProceso"] = pedidosProceso;
+            return View();
+        } 
+        */
+
+        /* 
+         public IActionResult pedidosenproceso()
+        {
+            var pedidosProceso = (from dp in _dulcesaborDbContext.detalles_pedidos
+                                  join p in _dulcesaborDbContext.pedidos on dp.id_pedido equals p.id_pedido
+                                  join c in _dulcesaborDbContext.items_menu on dp.id_comida equals c.id_item_menu
+                                  where p.estado == "Entregado"
+                                  group new { dp, p, c } by p.id_pedido into g
+                                  select new
+                                  {
+                                      id_pedido = g.Key,
+                                      detalles = g.Select(x => new
+                                      {
+                                          nombre_comida = x.c.nombre,
+                                          costo_comida = x.c.precio
+                                      }),
+                                      total = g.Sum(x => x.c.precio)
+                                  }).ToList();
+
+            ViewData["pedidosProceso"] = pedidosProceso;
+            return View();
+        } 
+        */
+
         public IActionResult RedireccionarAPedidosCerrados()
         {
             return RedirectToAction("pedidoscerrados");
