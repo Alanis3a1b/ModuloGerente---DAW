@@ -3,14 +3,41 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - ModuloGerente___DAW</title>
+    <title>@ViewData["Title"] - ModuloGerente</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/ModuloGerente___DAW.styles.css" asp-append-version="true" />
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-dark" style="background-color: #895a22">
+            <div class="container-fluid input-group justify-content-between">
+                @* Izquierda *@
+                <div class="d-flex">
+                    @* Logo *@
+                    <a class="navbar-brand me-2 mb-1 d-flex align-items-center" href="@Url.Action("RedireccionarAIndex", "Home")">
+                        <img src="/css/img/DulceSaborLogo.png">
+                    </a>
+                    @* Busqueda *@
+                    <form class="input-group w-auto my-auto d-none d-sm-flex">
+                        <span class="input-group-text border-0 d-lg-none d-lg-flex" style="background-color: #895a22">
+                            <i class="bi bi-search text-light"></i>
+                        </span>
+                        <input autocomplete="off"
+                               type="search"
+                               class="form-control rounded bg-dark text-light"
+                               placeholder="Search"
+                               style="min-width: 125px; background-color: #895a22;" />
+                    </form>
+                </div>
+                @* Derecha *@
+                <div>
+                    <i class="bi bi-person-circle text-light" style="font-size: 25px;"></i>
+                </div>
+            </div>
+        </nav>
+        @* <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            
             <div class="container-fluid">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">ModuloGerente___DAW</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -27,18 +54,23 @@
                         </li>
                     </ul>
                 </div>
-            </div>
-        </nav>
+            </div> 
+        </nav>*@
     </header>
-    <div class="container">
+    <div class="container-fluid">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
+    @* <footer class="border-top footer text-muted">
+        <div class="container-fluid">
             &copy; 2024 - ModuloGerente___DAW - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer> *@
+    <footer>
+        <div class="container-fluid text-light text-center pt-3 pb-2" style="background-color: #895a22;">
+            <p>Copyright © 2024. Todos los derechos reservados.</p>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

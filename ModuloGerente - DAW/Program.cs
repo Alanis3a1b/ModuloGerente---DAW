@@ -8,7 +8,7 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<dulcesaborDbContext>(opt =>
         opt.UseSqlServer(
-            builder.Configuration.GetConnectionString("equiposDbConnection")
+            builder.Configuration.GetConnectionString("dulcesaborDbContext")
             )
 );
 
