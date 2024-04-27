@@ -13,41 +13,39 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 </head>
 
-<body>
+<body style="font-family: 'Montserrat', sans-serif;">
     <div class="container-fluid">
-        <nav class="container-fluid navbar navbar-light bg-light">
+        <nav class="container-fluid navbar">
             <div class="container-fluid">
                 <div class="navbar-brand d-flex align-items-center mt-3">
                     <i class="bi bi-arrow-left" alt="" width="30" height="24"></i>
-                    <button onclick="location.href='@Url.Action("RedireccionarAIndex", "Home")'">PEDIDOS ABIERTO</button>
+                    <a href="@Url.Action("RedireccionarAIndex", "Home")" class="fw-bold" style="text-decoration:none; color: #000;"> PEDIDOS ABIERTOS</a>
                 </div>
             </div>
         </nav>
-
         <div class="container-fluid">
             <div class="row">
                 <div class="col">
                     <hr>
-                    <div class="container-fluid contenedor-flex">
-                        <button>Pedidos locales activos</button>
-                        <button>Pedidos en línea activos</button>
+                    <div class="container-fluid d-flex align-items-center justify-content-center text-center">
+                        <button type="button" class="btn btn-outline-secondary me-3">Pedidos locales activos</button>
+                        <button type="button" class="btn btn-outline-secondary ms-3">Pedidos en línea activos</button>
                     </div>
                     <br />
-
                 </div>
             </div>
         </div>
 
         @*Aquí van las listas de los pedidos*@
-        <div class="container-fluid mt-3">
-            <div class="row row-cols-1 row-cols-md-3">
+        <div class="container-fluid mt-3 align-items-center justify-content-center text-center">
+            <div class="row row-cols-1 row-cols-md-3 ms-4 me-4">
                 @*Basicamente, foreach es "por cada" elemento que saque de la funcion que le establecemos
                     en Viewdata["pedidosAbiertos"], lo agregará en una tablita establecida en html en el ORDEN ID
                 *@
                 @foreach (var pedido in (IEnumerable<dynamic>)ViewData["pedidosAbiertos"])
                 {
                     <div class="col">
-                        <div class="card text-dark bg-warning mb-3" style="max-width: 18rem;">
+                        <div class="card text-dark bg-warning mt-4 mb-4" style="max-width: 35rem;">
                             <div class="card-header"><h3>ORDEN ID: @pedido.id_pedido</h3></div>
                             <div class="card-body">
                                 @*Aquí está tomando los demás datos del id que tomo*@
@@ -63,7 +61,6 @@
                                             <p>$@detalle.costo_comida</p>
                                         </div>
                                     </div>
-                                    
                                 }
                                 <div class="row">
                                     <div class="col">
@@ -73,11 +70,12 @@
                                         <p id="total" style="font-weight: bold;">$@pedido.total</p>
                                     </div>
                                 </div>
-                                <hr>
-                                    <div class="col">
+                                <div class="col">
+                                    <div class="rounded-4 bg-white align-items-center justify-content-center text-center">
                                         @*Estado abierto tendrían que salir*@
                                         <p>Estado: @pedido.estado</p>
-                                    </div>
+                                    </div>  
+                                </div>
                             </div>
                         </div>
                     </div>
