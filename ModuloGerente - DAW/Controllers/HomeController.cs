@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ModuloGerente___DAW.Models;
 using System.Diagnostics;
@@ -57,6 +58,18 @@ namespace ModuloGerente___DAW.Controllers
 
         public IActionResult mesas()
         {
+            //Listado de las mesas
+            var listaDeMesas = (from m in _dulcesaborDbContext.mesas
+                                 join e in _dulcesaborDbContext.estados on m.id_estado equals e.id_estado
+                                select new
+                                {
+                                    nombre_mesa = m.nombre_mesa,
+                                    estado = e.nombre
+                                    
+                                }).ToList();
+
+            ViewData["listadoDeMesas"] = listaDeMesas;
+
             return View();
         }
 
