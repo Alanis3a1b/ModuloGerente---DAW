@@ -6,11 +6,19 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+//Cuando lo use la dani xd
 builder.Services.AddDbContext<dulcesaborDbContext>(opt =>
         opt.UseSqlServer(
             builder.Configuration.GetConnectionString("dulcesaborDbContext")
             )
 );
+
+//Cuando lo use la lalanis xd
+//builder.Services.AddDbContext<dulcesaborDbContext>(opt =>
+//        opt.UseSqlServer(
+//            builder.Configuration.GetConnectionString("equiposDbConnection")
+//            )
+//);
 
 var app = builder.Build();
 
