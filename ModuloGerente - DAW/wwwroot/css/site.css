@@ -26,3 +26,17 @@ body {
     justify-content: center; /* Centrar los elementos horizontalmente */
     gap: 10px; /* Espacio entre los botones */
 }
+
+/* Estilo para el cuadro */
+.cuadro-amarillo {
+    background-color: #FFE584; /* Color de fondo amarillo */
+    border-radius: 5px; /* Bordes redondeados */
+    width: 250; 
+    height: 250;
+}
+
+/* Estilo para el texto dentro del cuadro */
+.texto {
+    color: black; /* Color del texto negro */
+    text-align: center; /* Alineación centrada */
+}

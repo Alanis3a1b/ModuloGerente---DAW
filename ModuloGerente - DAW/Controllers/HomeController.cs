@@ -215,6 +215,27 @@ namespace ModuloGerente___DAW.Controllers
         }
         public IActionResult detallescuentasabiertas()
         {
+            //Listado para invocar los pedidos
+            var pedidosDetalles = (from dp in _dulcesaborDbContext.detalle_de_pedido
+                                   join p in _dulcesaborDbContext.pedido on dp.id_pedido equals p.id_pedido
+                                   join c in _dulcesaborDbContext.comida on dp.id_comida equals c.id_comida
+                                   where p.estado == "Abierto"
+                                   group new { dp, p, c } by p.id_pedido into g
+                                   select new
+                                   {
+                                       estado = _dulcesaborDbContext.pedido.FirstOrDefault(p => p.id_pedido == g.Key).estado,
+                                       id_pedido = g.Key,
+                                       detalles = g.Select(x => new
+                                       {
+                                           nombre_comida = x.c.nombre,
+                                           costo_comida = x.c.precio,
+                                       }),
+                                       total = g.Sum(x => x.c.precio)
+                                   }).ToList();
+
+            ViewData["pedidosDetalles"] = pedidosDetalles;
+
+
             return View();
         }
 
